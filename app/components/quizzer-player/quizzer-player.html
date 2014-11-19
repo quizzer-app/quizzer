@@ -1,0 +1,91 @@
+<link rel='import' href='../../lib/paper-progress/paper-progress.html'>
+
+<polymer-element name='quizzer-player' attributes='src'>
+  <template>
+    <link rel='stylesheet' href='quizzer-player.css'>
+
+    <audio id='audio'
+           preload='auto'
+           controls></audio>
+
+    <paper-progress
+      id='progressBar'
+      value='{{ trackElapsed }}'
+      ></paper-progress>
+
+  </template>
+  <script>
+    Polymer('quizzer-player', {
+      src: '',
+      trackDuration: 0,
+      trackElapsed: 0,
+      ready: function () {
+        var that = this;
+
+        this.trackDuration = 0;
+        this.trackElapsed = 0;
+
+        // whenever it's playing, we want the slider moving!
+        this.$.audio.addEventListener('playing', function () {
+          that.startSliderTimer();
+        });
+
+        this.$.audio.addEventListener('canplay', function () {
+          that.trackDuration = this.duration;
+          that.trackElapsed = this.currentTime;
+        });
+
+      },
+      srcChanged: function (oldVal, newVal) {
+        this.$.audio.src = newVal;
+        this.fire('sourceChanged', newVal);
+      },
+      play: function (value, channel) {
+        this.$.audio.play();
+        this.fire('play', 'play');
+      },
+      pause: function (value, channel) {
+        this.$.audio.pause();
+        clearInterval(this.sliderUpdateInterval);
+        this.fire('pause', 'pause');
+      },
+      playOrPause: function (value, channel) {
+        if (this.$.audio.paused) {
+          this.$.audio.play();
+          this.fire('play', 'play');
+        } else {
+          this.$.audio.pause();
+          this.fire('pause', 'pause');
+        }
+      },
+      stop: function (value, channel) {
+        if (!this.$.audio.paused) {
+          this.$.audio.pause();
+        }
+        this.$.audio.currentTime = 0;
+        clearInterval(this.sliderUpdateInterval);
+        this.fire('stop', 'stop');
+      },
+      seek: function (value, channel) {
+        value = +value;
+        if (typeof value === 'number' && value >= 0 && value <= this.$.audio.duration) {
+          this.$.audio.currentTime = value;
+          this.fire('seek', value);
+        }
+      },
+      /**
+       * Slider
+       */
+      startSliderTimer: function () {
+        var that = this;
+
+        if (this.sliderUpdateInterval)
+          clearInterval(this.sliderUpdateInterval);
+
+        this.sliderUpdateInterval = setInterval(function () {
+          that.trackElapsed = Math.floor((100 / that.$.audio.duration) * that.$.audio.currentTime);
+        }, 120);
+      }
+    });
+  </script>
+</polymer-element>

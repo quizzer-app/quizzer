@@ -1,0 +1,32 @@
+<!--
+Synchro data
+@element quizzer-login
+-->
+
+<link rel="import" href="../../lib/core-ajax/core-ajax.html">
+<link rel="import" href="../../lib/firebase-element/firebase-element.html">
+<link rel="import" href="../../lib/firebase-element/firebase-login.html">
+
+<polymer-element name="quizzer-login" hidden>
+  <template>
+
+
+    <!-- build:css login.min.css -->
+    <link rel="stylesheet" href="login.css"/>
+    <!-- endbuild -->
+
+    <firebase-login id="fbLogin" provider="anonymous" params='{"rememberMe": true}'
+                    location="https://polymer-topeka.firebaseio.com" user="{{fbUser}}"
+                    statusKnown="{{statusKnown}}"></firebase-login>
+    <firebase-element id="fbUser"
+                      location="{{!offline && fbUser ? 'https://polymer-topeka.firebaseio.com/users/' + fbUser.uid : null}}"
+                      priority="{{user.score}}" dataReady="{{userReady}}"></firebase-element>
+    <core-ajax auto handleAs="json" url="{{url}}" response="{{categories}}"></core-ajax>
+
+  </template>
+
+  <!-- build:js login.min.js -->
+  <script src="login.js"></script>
+  <!-- endbuild -->
+
+</polymer-element>

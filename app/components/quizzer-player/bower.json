@@ -1,0 +1,30 @@
+{
+  "name": "quizzer-player",
+  "version": "0.0.1",
+  "authors": [
+    "Benjipott <pott.benjamin@gmail.com>"
+  ],
+  "description": "A Polymer element that fetch basic audio player",
+  "main": "quizzer-player.html",
+  "keywords": [
+    "web-components",
+    "polymer"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Granze/lastfm-card",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "~0.4.1",
+    "core-ajax": "Polymer/core-ajax#~0.4.1"
+  },
+  "resolutions": {
+    "core-ajax": "~0.4.1"
+  }
+}

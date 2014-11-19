@@ -1,0 +1,23 @@
+:host {
+  display: block;
+
+}
+
+:host audio {
+  width: 100%;
+  display: none;
+}
+
+:host paper-progress {
+  display: block;
+  width: 100%;
+}
+
+:host paper-progress::shadow #activeProgress {
+  background-color: #e91e63;
+}
+
+:host paper-progress::shadow #progressContainer {
+  background-color: #64ffda;
+}
+

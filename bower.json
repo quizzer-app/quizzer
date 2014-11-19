@@ -1,0 +1,14 @@
+{
+  "name": "quizzer",
+  "description": "Music quiz game",
+  "version": "0.0.0",
+  "dependencies": {
+    "platform": "Polymer/platform#master",
+    "polymer": "Polymer/polymer#master",
+    "topeka-elements": "Polymer/topeka-elements#master",
+    "core-image": "Polymer/core-image#~0.5.0"
+  },
+  "devDependencies": {
+    "closure-compiler": "http://dl.google.com/closure-compiler/compiler-latest.zip"
+  }
+}
