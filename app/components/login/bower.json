@@ -1,0 +1,10 @@
+{
+  "name": "quizzer-login",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "core-selector": "Polymer/core-ajax#master",
+    "core-style": "Polymer/firebase-element#master",
+    "core-transition": "Polymer/firebase-login#master"
+  }
+}

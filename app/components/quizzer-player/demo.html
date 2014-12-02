@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>lastfm-card Demo</title>
+
+  <script src="../lib/platform/platform.js"></script>
+  <link rel="import" href="quizzer-player.html">
+  <style>
+  </style>
+</head>
+<body unresolved>
+<div class="wrapper">
+  <h1>&lt;quizzer-player&gt;&lt;/quizzer-player&gt;</h1>
+
+  <div class="col">
+    <div class="config">
+
+      <form id="player-form">
+        <fieldset id="options">
+          <input type="checkbox" id="autoplay">
+          <label for="recent">Show recent tracks</label>
+          <br>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="col">
+    <quizzer-player></quizzer-player>
+  </div>
+</div>
+</body>
+</html>

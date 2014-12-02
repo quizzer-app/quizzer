@@ -1,0 +1,28 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'pre-publish' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose run-script [ 'pre-publish' ]
+5 info pre-publish quizzer@0.0.0
+6 verbose unsafe-perm in lifecycle true
+7 info quizzer@0.0.0 Failed to exec pre-publish script
+8 error quizzer@0.0.0 pre-publish: `gulp && mkdir -p ../../quizzer_dist && cp -r _dist/* ../../quizzer_dist/`
+8 error Exit status 1
+9 error Failed at the quizzer@0.0.0 pre-publish script.
+9 error This is most likely a problem with the quizzer package,
+9 error not with npm itself.
+9 error Tell the author that this fails on your system:
+9 error     gulp && mkdir -p ../../quizzer_dist && cp -r _dist/* ../../quizzer_dist/
+9 error You can get their info via:
+9 error     npm owner ls quizzer
+9 error There is likely additional logging output above.
+10 error System Windows_NT 6.1.7601
+11 error command "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "pre-publish"
+12 error cwd d:\work\perso\polymer\quizzer-polymer
+13 error node -v v0.10.32
+14 error npm -v 1.4.28
+15 error code ELIFECYCLE
+16 verbose exit [ 1, true ]
